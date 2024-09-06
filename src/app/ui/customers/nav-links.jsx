@@ -28,11 +28,16 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
+              'flex h-[48px] w-full items-center justify-start gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium transition-colors duration-300 hover:bg-sky-100 hover:text-blue-600 md:flex-none md:p-3 md:px-3', // Make all buttons the same size
               {
                 'bg-sky-100 text-blue-600': pathname === link.href, // Highlight active link
+                'focus:outline-none': true, // Remove default outline
               }
             )}
+            style={{
+              backgroundColor: pathname === link.href ? 'var(--secondary-color)' : 'var(--background-color)',
+              color: pathname === link.href ? 'var(--primary-color)' : 'var(--text-color)',
+            }} // Apply color styling dynamically
           >
             <LinkIcon className="w-6" />
             <p className="hidden md:block">{link.name}</p>

@@ -18,11 +18,13 @@ const config = {
           600: '#2F6FEB',
         },
       },
-    },
-    keyframes: {
-      shimmer: {
-        '100%': {
-          transform: 'translateX(100%)',
+      animation: {
+        shimmer: 'shimmer 1.5s infinite', // Add the custom shimmer animation
+      },
+      keyframes: {
+        shimmer: {
+          '0%': { transform: 'translateX(-100%)' },  // Ensure '0%' is defined
+          '100%': { transform: 'translateX(100%)' },
         },
       },
     },

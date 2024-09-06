@@ -1,7 +1,31 @@
 .shape {
-    height: 0;
-    width: 0;
-    border-bottom: 30px solid black;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
+  height: 0;
+  width: 0;
+  border-bottom: 30px solid var(--primary-color); /* Uses the primary color */
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+
+.button {
+  background-color: var(--secondary-color); /* Uses the secondary color */
+  color: var(--text-color); /* Text color */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.button:hover {
+  background-color: var(--hover-secondary); /* Hover effect with hover-secondary color */
+  color: var(--background-color); /* Change text color on hover */
+}
+
+.text {
+  color: var(--text-color); /* Uses the text color */
+  font-family: 'Lusitana', serif; /* Font consistent with global styles */
+}
+
+.text-light {
+  color: var(--text-light-color); /* Uses the light text color */
 }

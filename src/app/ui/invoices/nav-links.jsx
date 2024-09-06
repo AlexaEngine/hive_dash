@@ -1,5 +1,3 @@
-'use client';
-
 import {
   UserGroupIcon,
   HomeIcon,
@@ -9,7 +7,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 
-// Updated links array with correct paths
 const links = [
   { name: 'Home', href: '/ui/dashboard', icon: HomeIcon },
   { name: 'Invoices', href: '/ui/invoices', icon: DocumentDuplicateIcon },
@@ -17,22 +14,27 @@ const links = [
 ];
 
 export default function NavLinks() {
-  const pathname = usePathname(); // Get the current pathname
+  const pathname = usePathname(); 
 
   return (
     <>
       {links.map((link) => {
-        const LinkIcon = link.icon; // Dynamically get icon
+        const LinkIcon = link.icon; 
         return (
           <Link
             key={link.name}
             href={link.href}
             className={clsx(
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
+              'flex h-[48px] w-full items-center justify-start gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium transition hover-scale fade-in', // Added hover-scale and fade-in
               {
-                'bg-sky-100 text-blue-600': pathname === link.href, // Highlight active link
+                'bg-sky-100 text-blue-600': pathname === link.href,
+                'focus:outline-none': true,
               }
             )}
+            style={{
+              backgroundColor: pathname === link.href ? 'var(--secondary-color)' : 'var(--background-color)',
+              color: pathname === link.href ? 'var(--primary-color)' : 'var(--text-color)',
+            }}
           >
             <LinkIcon className="w-6" />
             <p className="hidden md:block">{link.name}</p>
